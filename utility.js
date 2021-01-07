@@ -23,12 +23,16 @@ class EmployeeWageComputation {
 		let totalWorkhours=0;
         let wage;
         let monthlyWage;
+        let day = 1;
+        var storeWage = [];
+        var storeTotalWage = [];
         if (attendance==1) {
             let type = (Math.floor(Math.random() * 2)+1);
             while (totalWorkhours<MAX_HRS_IN_MONTH && totalWorkingDays < NUM_WORKING_DAYS) {
                 switch (type) {
                     case FULL_TIME:
                         wage = WAGE_PER_HOUR * FULL_DAY_HOUR;
+                        storeWage.push(wage);
                         monthlyWage = wage * WORKING_DAYS_PER_MONTH;
                         totalWorkhours = totalWorkhours+FULL_DAY_HOUR;
                         // console.log("Employee Wage is : ",wage);
@@ -36,6 +40,7 @@ class EmployeeWageComputation {
                         break;
                     case PART_TIME:
                         wage = WAGE_PER_HOUR * PART_TIME_HOUR;
+                        storeWage.push(wage);
                         monthlyWage = wage * WORKING_DAYS_PER_MONTH;
                         totalWorkhours = totalWorkhours + PART_TIME_HOUR;
                         // console.log("Employee Wage is : ",wage);
@@ -44,10 +49,17 @@ class EmployeeWageComputation {
                         break;
                 }
                 totalWorkingDays++;
+                totalWage = totalWage+wage;
+                storeTotalWage.push(totalWage);
+                
             }
-            totalWage=(totalWorkhours*totalWorkingDays*WAGE_PER_HOUR);
+            // totalWage=(totalWorkhours*totalWorkingDays*WAGE_PER_HOUR);
+            storeTotalWage.push(totalWage);
+            console.log("Total Wage is : ",totalWage);
+            console.log("Wage stored->",storeWage);
+            console.log("Total wage stored->",storeTotalWage);
             return totalWage;
-		    console.log("Total Wage is : ",totalWage);
+            
         }
         return 0;
     }
