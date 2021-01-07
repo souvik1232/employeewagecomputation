@@ -46,8 +46,14 @@ class EmployeeWageComputation {
                 totalWorkingDays++;
             }
             totalWage=(totalWorkhours*totalWorkingDays*WAGE_PER_HOUR);
+            return totalWage;
 		    console.log("Total Wage is : ",totalWage);
         }
+        return 0;
+    }
+    getWorkHours = (wage) =>{
+        let workHours = wage/WAGE_PER_HOUR;
+        console.log("Total Working Hours : ",workHours);
     }
 }
 module.exports = new EmployeeWageComputation();
