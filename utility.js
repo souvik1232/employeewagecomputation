@@ -26,6 +26,7 @@ class EmployeeWageComputation {
         let day = 1;
         var storeWage = [];
         var storeTotalWage = [];
+        var obj = {};
         if (attendance==1) {
             let type = (Math.floor(Math.random() * 2)+1);
             while (totalWorkhours<MAX_HRS_IN_MONTH && totalWorkingDays < NUM_WORKING_DAYS) {
@@ -54,12 +55,21 @@ class EmployeeWageComputation {
                 
             }
             // totalWage=(totalWorkhours*totalWorkingDays*WAGE_PER_HOUR);
-            storeTotalWage.push(totalWage);
+            //storeTotalWage.push(totalWage);
             console.log("Total Wage is : ",totalWage);
-            console.log("Wage stored->",storeWage);
-            console.log("Total wage stored->",storeTotalWage);
-            return totalWage;
-            
+            //console.log("Wage stored->",storeWage);
+            //console.log("Total wage stored->",storeTotalWage);
+            var map = new Map();
+            var map1 = new Map();
+            for (let i = 0; i < storeWage.length; i++) {
+                map.set(i,storeWage[i]);  
+            }
+            console.log("Wage sorted->",map);
+            for (let i = 0; i < storeTotalWage.length; i++) {
+                map1.set(i,storeTotalWage[i]);  
+            }
+            console.log("Total Wage sorted->",map1);
+            return totalWage;   
         }
         return 0;
     }
