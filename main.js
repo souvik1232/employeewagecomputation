@@ -1,3 +1,3 @@
 console.log("Welcome")
 const utility = require('./utility');
-utility.employeeAttendance();
+utility.dailyEmployeeWage(utility.employeeAttendance());
