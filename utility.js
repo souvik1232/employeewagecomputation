@@ -18,12 +18,16 @@ class EmployeeWageComputation {
         let wage;
         if (attendance==1) {
             let type = (Math.floor(Math.random() * 2)+1);
-            if (type == FULL_TIME) {
-                wage = WAGE_PER_HOUR * FULL_DAY_HOUR;
-                console.log("Employee Wage is : ",wage);
-            } else {
-                wage = WAGE_PER_HOUR * PART_TIME_HOUR;
-                console.log("Employee Wage is : ",wage);
+            switch (type) {
+                case FULL_TIME:
+                    wage = WAGE_PER_HOUR * FULL_DAY_HOUR;
+                    console.log("Employee Wage is : ",wage);
+                    break;
+                case PART_TIME:
+                    wage = WAGE_PER_HOUR * PART_TIME_HOUR;
+                    console.log("Employee Wage is : ",wage);
+                default:
+                    break;
             }
         }
     }
